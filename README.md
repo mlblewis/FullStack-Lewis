@@ -1,5 +1,5 @@
 # FullStack-Lewis
 
-[alt text](http://i.imgur.com/OcAU6mz.jpg)
+[img](http://i.imgur.com/OcAU6mz.jpg)[/img]
 # Michael Lewis
 # Downwiththtegame@gmail.com
