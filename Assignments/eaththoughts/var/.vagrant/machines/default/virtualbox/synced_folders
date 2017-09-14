@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www":{"guestpath":"/var/www","hostpath":"C:/Users/downw/Vagrant/FullStack-Lewis/Assignments/eaththoughts/var/www","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/downw/Vagrant/FullStack-Lewis/Assignments/eaththoughts/var","disabled":false,"__vagrantfile":true}}}
