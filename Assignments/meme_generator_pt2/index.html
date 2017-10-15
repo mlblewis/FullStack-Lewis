@@ -191,10 +191,14 @@
                                             <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="newemail">
                                         </div>
                                         <div class="form-group">
+                                            <label for="username">User Name:</label>
+                                            <input type="text" class="form-control" id="username" placeholder="User name" name="username">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="newpwd">Password:</label>
                                             <input type="password" class="form-control" id="newpwd" placeholder="New password" name="newpwd">
                                         </div>
-                                        <button type="submit" class="btn btn-default" onclick="register()"</button>>Register</button>
+                                        <button type="submit" class="btn btn-default" id="registration" </button>>Register</button>
                                     </form>
                                 </div>
 
@@ -261,14 +265,14 @@
             $('#showImage').html(image_form);
 
             $('#enterTextForm').hide()
-            function register(){
-            $("#registration-form").click(function () {
+
+            $('#registration').click(function (e) {
+                e.preventdefault
                 first = $('#first').val()
                 last = $('#last').val()
-                email = $('#Email').val()
+                email = $('#newemail').val()
                 username = $('#username').val()
-                pass = $('#password').val()
-                repass = $('#reenterpassword').val()
+                pass = $('#newpwd').val()
 
                 url = "http://localhost:5050/user/new"
 
@@ -276,8 +280,8 @@
                     "first": first,
                     "last": last,
                     "email": email,
-                    "userid": userid,
-                    "pass": pass
+                    "username": username,
+                    "password": pass
                 }
 
                 function register_success(response) {
@@ -291,7 +295,7 @@
 
                 my_request("POST", url, data, register_success, register_failure);
 
-            });}
+            });
 
             $("#submitImage").click(function () {
                 url = $('#picurl').val()
@@ -352,10 +356,10 @@
                     "crossDomain": true,
                     "url": url,
                     "method": method,
-                    "headers": {
-                        "cache-control": "no-cache",
-                        "postman-token": "e94cfe4d-dd33-f8e4-11a3-3730a3c25500"
-                    },
+                   // "headers": {
+                    //    "cache-control": "no-cache",
+                     //   "postman-token": "e94cfe4d-dd33-f8e4-11a3-3730a3c25500"
+                   // },
                     "processData": false,
                     "contentType": false,
                     "mimeType": "multipart/form-data",
