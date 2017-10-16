@@ -267,34 +267,22 @@
             $('#enterTextForm').hide()
 
             $('#registration').click(function (e) {
-                e.preventdefault
-                first = $('#first').val()
-                last = $('#last').val()
-                email = $('#newemail').val()
-                username = $('#username').val()
-                pass = $('#newpwd').val()
-
+                e.preventDefault();
                 url = "http://localhost:5050/user/new"
-
                 data = {
-                    "first": first,
-                    "last": last,
-                    "email": email,
-                    "username": username,
-                    "password": pass
+                    "first": $('#first').val(),
+                    "last": $('#last').val(),
+                    "email": $('#newemail').val(),
+                    "username": $('#username').val(),
+                    "password": $('#newpwd').val()
                 }
-
                 function register_success(response) {
                     console.log(response);
-
                 }
-
                 function register_failure(response) {
                     console.log(response);
                 }
-
                 my_request("POST", url, data, register_success, register_failure);
-
             });
 
             $("#submitImage").click(function () {
@@ -321,7 +309,7 @@
                     console.log(response);
                 }
 
-                my_request("GET", url, {}, image_success, image_failure);
+                my_request2("GET", url, {}, image_success, image_failure);
 
             });
 
@@ -330,12 +318,12 @@
                 var jqxhr = $.ajax({
                     async: true,
                     crossDomain: false,
-                    headers: {
-                        "cache-control": "no-cache"
-                    },
+                    //headers: {
+                    //    "cache-control": "no-cache"
+                    //},
                     url: url,
                     type: type, // default is GET but you can use other verbs based on your needs.
-                    cache: true, // default is true, but false for dataType 'script' and 'jsonp', so set it on need basis.
+                    cache: false, // default is true, but false for dataType 'script' and 'jsonp', so set it on need basis.
                     data: data, // add your request parameters in the data object.
                     dataType: "json", // specify the dataType for future reference
 
@@ -350,7 +338,6 @@
             }
 
             function my_request(method, url, data, successHandler, failureHandler) {
-
                 var jqxhr = $.ajax({
                     "async": true,
                     "crossDomain": true,
@@ -363,8 +350,10 @@
                     "processData": false,
                     "contentType": false,
                     "mimeType": "multipart/form-data",
-                    "data": data
+                    "data": data,
+
                 });
+                console.log(data)
                 jqxhr.done(successHandler);
                 jqxhr.fail(failureHandler);
 
